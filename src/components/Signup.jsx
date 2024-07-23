@@ -27,6 +27,9 @@ export const Signup = () => {
           password: password,
         }),
       });
+      console.log(response.json());
+      console.log(email);
+      console.log(password);
 
       if (response.ok) {
         login(email, password);
