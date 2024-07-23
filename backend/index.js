@@ -14,7 +14,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://fnax-task2.vercel.app/",
+    origin: "https://fnax-task2.vercel.app",
   })
 );
 
