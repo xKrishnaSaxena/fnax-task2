@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Header from "./Header";
 
 export const ResetPassword = () => {
@@ -7,11 +7,9 @@ export const ResetPassword = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const token = searchParams.get("token");
+  const { token } = useParams();
 
   const URL = `https://fnax-task2-backend.onrender.com/api/auth/reset-password/${token}`;
-  console.log(token);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -29,7 +27,7 @@ export const ResetPassword = () => {
         },
         body: JSON.stringify({ password }),
       });
-      console.log(response.json());
+
       if (response.ok) {
         setMessage("Password has been reset successfully");
         setTimeout(() => navigate("/"), 2000);
