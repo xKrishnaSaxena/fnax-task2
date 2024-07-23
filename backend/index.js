@@ -17,6 +17,7 @@ app.use(
     origin: "https://fnax-task2.vercel.app",
   })
 );
+app.options("*", cors());
 
 connectDB();
 app.use(bodyParser.json());
