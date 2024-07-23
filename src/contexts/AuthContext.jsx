@@ -30,6 +30,7 @@ const AuthenticationProvider = ({ children }) => {
       },
       body: JSON.stringify({ username, password }),
     });
+    console.log(response.json());
 
     if (response.ok) {
       const data = await response.json();
