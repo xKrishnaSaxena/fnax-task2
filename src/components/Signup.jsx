@@ -1,6 +1,6 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthenticationContext } from "../contexts/AuthContext";
+
 import Header from "./Header";
 
 export const Signup = () => {
@@ -8,7 +8,6 @@ export const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { login } = useContext(AuthenticationContext);
 
   const URL = "https://fnax-task2-backend.onrender.com";
 
@@ -27,12 +26,9 @@ export const Signup = () => {
           password: password,
         }),
       });
-      console.log(response.json());
-      console.log(email);
-      console.log(password);
 
       if (response.ok) {
-        login(email, password);
+        navigate("/login");
       }
     } catch (error) {
       console.error("Error:", error);
