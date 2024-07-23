@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthenticationContext } from "../contexts/AuthContext";
+import Header from "./Header";
 
 export const Signup = () => {
   const [username, setUsername] = useState("");
@@ -15,7 +16,6 @@ export const Signup = () => {
     e.preventDefault();
 
     try {
-      // Make the POST request to your backend API
       const response = await fetch(`${URL}/api/auth/register`, {
         method: "POST",
         headers: {
@@ -37,59 +37,62 @@ export const Signup = () => {
   }
 
   return (
-    <div style={styles.container}>
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <h2 style={styles.heading}>Signup</h2>
-        <div style={styles.formGroup}>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-            required
-            style={styles.input}
-          />
-        </div>
+    <>
+      <Header />
+      <div style={styles.container}>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <h2 style={styles.heading}>Signup</h2>
+          <div style={styles.formGroup}>
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
+              required
+              style={styles.input}
+            />
+          </div>
 
-        <div style={styles.formGroup}>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            required
-            style={styles.input}
-          />
-        </div>
+          <div style={styles.formGroup}>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              required
+              style={styles.input}
+            />
+          </div>
 
-        <div style={styles.formGroup}>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            required
-            style={styles.input}
-          />
-        </div>
+          <div style={styles.formGroup}>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              required
+              style={styles.input}
+            />
+          </div>
 
-        <div style={styles.buttonContainer}>
-          <button type="submit" style={styles.button}>
-            Signup
-          </button>
-          <button
-            type="button"
-            onClick={() => navigate("/")}
-            style={styles.button}
-          >
-            Go to Login
-          </button>
-        </div>
-      </form>
-    </div>
+          <div style={styles.buttonContainer}>
+            <button type="submit" style={styles.button}>
+              Signup
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate("/")}
+              style={styles.button}
+            >
+              Go to Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 };
 

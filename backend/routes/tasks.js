@@ -1,9 +1,9 @@
 import express from "express";
 import Task from "../models/Task.js";
-
+import { protect } from "./auth.js";
 const router = express.Router();
 
-router.post("/", async (req, res) => {
+router.post("/", protect, async (req, res) => {
   try {
     const newTask = await Task.create(req.body);
     res.status(201).send(newTask);
@@ -34,7 +34,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.patch("/:id", async (req, res) => {
+router.patch("/:id", protect, async (req, res) => {
   try {
     const task = await Task.findById(req.params.id);
     if (!task) {
@@ -50,7 +50,7 @@ router.patch("/:id", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", protect, async (req, res) => {
   try {
     const task = await Task.findById(req.params.id);
     if (!task) {

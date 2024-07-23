@@ -1,38 +1,15 @@
-import React, { useContext } from "react";
 import "./LandingPage.css";
 import { useUser } from "./contexts/UserContext";
-import { AuthenticationContext } from "./contexts/AuthContext";
+
 import { useNavigate } from "react-router-dom";
+import Header from "./components/Header";
 
 const LandingPage = () => {
-  const { logout } = useContext(AuthenticationContext);
   const { user } = useUser();
   const navigate = useNavigate();
   return (
     <div>
-      <header>
-        <div className="logo">FNAXIOM</div>
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#assessment-tasks">Assessment Tasks</a>
-        </nav>
-        <span className="heading">FULL STACK INTERNSHIP ASSESSMENT</span>
-        {user ? (
-          <button className="ranBut" href="/logout" onClick={() => logout()}>
-            Logout
-          </button>
-        ) : (
-          <>
-            <a className="ranBut" href="/login">
-              Login
-            </a>
-            <a className="ranBut" href="/signup">
-              Signup
-            </a>
-          </>
-        )}
-      </header>
+      <Header />
       <section className="hero">
         <div className="card">
           <div className="card-content">
@@ -43,14 +20,18 @@ const LandingPage = () => {
               dolores molestiae repellat dolore.
             </p>
             <button className="gradient-button">Hello</button>
-            <button
-              className="cta"
-              onClick={() => {
-                navigate("/tasks");
-              }}
-            >
-              GET STARTED
-            </button>
+            {user ? (
+              <button
+                className="cta"
+                onClick={() => {
+                  navigate("/tasks");
+                }}
+              >
+                GET STARTED
+              </button>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </section>

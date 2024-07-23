@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthenticationContext } from "../contexts/AuthContext";
+import Header from "./Header";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
@@ -14,54 +15,57 @@ export const Login = () => {
   }
 
   return (
-    <div style={styles.container}>
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <h2 style={styles.heading}>Login</h2>
-        <div style={styles.formGroup}>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-            required
-            style={styles.input}
-          />
-        </div>
+    <>
+      <Header />
+      <div style={styles.container}>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <h2 style={styles.heading}>Login</h2>
+          <div style={styles.formGroup}>
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
+              required
+              style={styles.input}
+            />
+          </div>
 
-        <div style={styles.formGroup}>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            required
-            style={styles.input}
-          />
-        </div>
+          <div style={styles.formGroup}>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              required
+              style={styles.input}
+            />
+          </div>
 
-        <div style={styles.buttonContainer}>
-          <button type="submit" style={styles.button}>
-            Login
-          </button>
-          <button
-            type="button"
-            onClick={() => navigate("/forgot-password")}
-            style={styles.button}
-          >
-            Forgot Password?
-          </button>
-          <button
-            type="button"
-            onClick={() => navigate("/signup")}
-            style={styles.button}
-          >
-            Go to Signup
-          </button>
-        </div>
-      </form>
-    </div>
+          <div style={styles.buttonContainer}>
+            <button type="submit" style={styles.button}>
+              Login
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate("/forgot-password")}
+              style={styles.button}
+            >
+              Forgot Password?
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate("/signup")}
+              style={styles.button}
+            >
+              Go to Signup
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 };
 
