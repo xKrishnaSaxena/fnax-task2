@@ -11,6 +11,7 @@ export const ResetPassword = () => {
   const token = searchParams.get("token");
 
   const URL = `https://fnax-task2-backend.onrender.com/api/auth/reset-password/${token}`;
+  console.log(token);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -28,7 +29,7 @@ export const ResetPassword = () => {
         },
         body: JSON.stringify({ password }),
       });
-
+      console.log(response.json());
       if (response.ok) {
         setMessage("Password has been reset successfully");
         setTimeout(() => navigate("/"), 2000);
