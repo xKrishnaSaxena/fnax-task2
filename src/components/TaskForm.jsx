@@ -7,7 +7,7 @@ import { AuthenticationContext } from "../contexts/AuthContext";
 const TasksForm = () => {
   const { user } = useUser();
 
-  const { token } = useContext(AuthenticationContext);
+  const { token, userId } = useContext(AuthenticationContext);
 
   const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState("");
@@ -37,6 +37,7 @@ const TasksForm = () => {
       description,
       dueDate,
       status,
+      user: userId,
       createdBy: user.username,
     };
 
@@ -157,7 +158,7 @@ const TasksForm = () => {
               </p>
               <p className="tasks-status">Status: {task.status}</p>
               <p className="tasks-status">Created By: {task.createdBy}</p>
-              {user ? (
+              {userId === task.user ? (
                 <>
                   <button
                     onClick={() => handleEdit(task)}

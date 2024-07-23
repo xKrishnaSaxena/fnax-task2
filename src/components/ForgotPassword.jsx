@@ -36,7 +36,7 @@ export const ForgotPassword = () => {
       <Header />
       <div style={styles.container}>
         <form onSubmit={handleSubmit} style={styles.form}>
-          <h2>Forgot Password</h2>
+          <h2 style={styles.heading}>Forgot Password</h2>
           <div style={styles.formGroup}>
             <label htmlFor="email">Email</label>
             <input
@@ -73,6 +73,9 @@ const styles = {
     height: "100vh",
     backgroundColor: "#f4f4f9",
   },
+  heading: {
+    color: "black",
+  },
   form: {
     backgroundColor: "#fff",
     padding: "20px",
@@ -80,6 +83,7 @@ const styles = {
     boxShadow: "0 0 10px rgba(0,0,0,0.1)",
     maxWidth: "400px",
     width: "100%",
+    color: "black",
   },
   formGroup: {
     marginBottom: "15px",
@@ -89,6 +93,7 @@ const styles = {
     padding: "10px",
     borderRadius: "4px",
     border: "1px solid #ccc",
+    color: "black",
   },
   button: {
     padding: "10px 15px",
