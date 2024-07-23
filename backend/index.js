@@ -14,7 +14,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://fnaxiom-il60.onrender.com/",
+    origin: "https://fnax-task2.vercel.app/",
   })
 );
 
