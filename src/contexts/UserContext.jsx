@@ -3,7 +3,7 @@ import axios from "axios";
 import { AuthenticationContext } from "./AuthContext";
 
 const UserContext = createContext();
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://fnax-task2-backend.onrender.com";
 export const useUser = () => React.useContext(UserContext);
 
 export const UserProvider = ({ children }) => {

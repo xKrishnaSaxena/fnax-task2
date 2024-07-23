@@ -10,7 +10,7 @@ export const ResetPassword = () => {
   const [searchParams] = useSearchParams();
   const token = searchParams.get("token");
 
-  const URL = `http://localhost:8000/api/auth/reset-password/${token}`;
+  const URL = `https://fnax-task2-backend.onrender.com/api/auth/reset-password/${token}`;
 
   async function handleSubmit(e) {
     e.preventDefault();

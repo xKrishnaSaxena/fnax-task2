@@ -17,7 +17,7 @@ const TasksForm = () => {
   const [status, setStatus] = useState("Pending");
 
   const [editingTask, setEditingTask] = useState(null);
-  const BASEURL = "http://localhost:8000";
+  const BASEURL = "https://fnax-task2-backend.onrender.com";
 
   useEffect(() => {
     fetch(`${BASEURL}/api/tasks`, {

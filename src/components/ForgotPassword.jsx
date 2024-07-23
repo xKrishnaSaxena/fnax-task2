@@ -6,7 +6,8 @@ export const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
-  const URL = "http://localhost:8000/api/auth/forget-password";
+  const URL =
+    "https://fnax-task2-backend.onrender.com/api/auth/forget-password";
 
   async function handleSubmit(e) {
     e.preventDefault();

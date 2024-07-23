@@ -10,7 +10,7 @@ const AuthenticationProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const URL = "http://localhost:8000";
+  const URL = "https://fnax-task2-backend.onrender.com";
   const token = localStorage.getItem("token");
   const userId = localStorage.getItem("userId");
 

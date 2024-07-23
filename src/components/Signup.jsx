@@ -10,7 +10,7 @@ export const Signup = () => {
   const navigate = useNavigate();
   const { login } = useContext(AuthenticationContext);
 
-  const URL = "http://localhost:8000";
+  const URL = "https://fnax-task2-backend.onrender.com";
 
   async function handleSubmit(e) {
     e.preventDefault();
