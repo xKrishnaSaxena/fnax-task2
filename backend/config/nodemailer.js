@@ -12,7 +12,8 @@ const transporter = nodemailer.createTransport({
 });
 
 export const sendResetEmail = (email, token) => {
-  const resetLink = `http://localhost:5173/reset-password?token=${token}`;
+  const resetLink = `https://fnax-task2.vercel.app/reset-password/${token}`;
+
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: email,
