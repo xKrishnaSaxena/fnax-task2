@@ -33,7 +33,7 @@ const AuthenticationProvider = ({ children }) => {
 
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
+
       setSuccess("User Logged In Successfully!");
       const token = data.token;
       const userId = data.data.user._id;
