@@ -8,7 +8,7 @@ const TasksForm = () => {
   const { user } = useUser();
 
   const { token } = useContext(AuthenticationContext);
-  console.log(token);
+
   const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState("");
 
